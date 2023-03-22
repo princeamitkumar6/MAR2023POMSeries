@@ -16,6 +16,6 @@ public class Constant {
 			"Rate your Downloads", "Manage your Extensions", "Apply to become a seller");
 	public static final String TEST_DATA_SHEET = "register";
 	public static final String REGISTER_SUCESS_MESSAGE = "Register for OpenCart account";
-	public static final String TEST = "Amit KUmar";
+
 
 }
