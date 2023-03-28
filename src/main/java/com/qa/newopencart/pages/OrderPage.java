@@ -4,7 +4,8 @@ public class OrderPage {
 
 	public void demo() {
 		int i = 20;
-		String name = "Amit";
+		String name = "Testing";
+		int age = 30;
 	}
 
 }
