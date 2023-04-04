@@ -38,7 +38,7 @@ public class DriverFactory {
 		driver.manage().window().maximize();
 		driver.get(prop.getProperty("url").trim());
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(100000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
