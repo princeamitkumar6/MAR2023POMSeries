@@ -12,8 +12,7 @@ public class AccountTest extends BaseTest {
 
 	@BeforeClass
 	public void accPageSetUp() {
-		pinPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
-		accPage= pinPage.pin(prop.getProperty("pin"));
+		accPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
 
 	@Test

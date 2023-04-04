@@ -22,7 +22,7 @@ public class DriverFactory {
 		String browser = prop.getProperty("browser").trim();
 
 		if (browser.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().browserVersion("111.0.5563.147").setup();;
 			driver = new ChromeDriver();
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();

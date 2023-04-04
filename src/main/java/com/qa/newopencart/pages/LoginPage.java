@@ -13,9 +13,10 @@ public class LoginPage {
 
 	private By emailTextField = By.id("input-email");
 	private By passwordTextField = By.id("input-password");
-	private By loginButton = By.xpath("//button[@type='submit']");
-	private By forgotPasswordLink = By.linkText("Forgot your password?");
+	private By loginButton = By.xpath("//input[@type='submit']");
+	private By forgotPasswordLink = By.linkText("Forgotten Password");
 	private By registration = By.linkText("REGISTER");
+	
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -35,17 +36,16 @@ public class LoginPage {
 		return driver.findElement(forgotPasswordLink).isDisplayed();
 	}
 
-	public SecurityPinPage doLogin(String email, String password) {
-		eutils.doSendKeys(emailTextField, email);
-		eutils.doSendKeys(passwordTextField, password);
-		eutils.doClick(loginButton);
-
-		return new SecurityPinPage(driver);
-	}
-
 	public RegisterPage goToRegistrationPage() {
 		eutils.doClick(registration);
 		return new RegisterPage(driver);
+	}
+
+	public AccountPage doLogin(String un, String pwd) {
+		eutils.doSendKeys(emailTextField, un);
+		eutils.doSendKeys(passwordTextField, pwd);
+		eutils.doClick(loginButton);
+		return new AccountPage(driver);
 	}
 
 }

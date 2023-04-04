@@ -24,8 +24,8 @@ public class LoginTest extends BaseTest {
 
 	@Test
 	public void loginTest() {
-		pinPage = loginPage.doLogin(prop.getProperty("username").trim(), prop.getProperty("password").trim());
-		Assert.assertTrue(pinPage.isPinDisplayed());
+		accPage = loginPage.doLogin(prop.getProperty("username").trim(), prop.getProperty("password").trim());
+		Assert.assertTrue(accPage.isLogoExist());
 	}
 
 }

@@ -15,10 +15,11 @@ public class AccountPage {
 	private WebDriver driver;
 	private ElementUtils eutils;
 
-	private By elements = By.xpath("//h4[@class='media-heading']");
-	private By logout = By.linkText("LOGOUT");
+	private By elements = By.xpath("//div[@id='content']/h2");
+	private By logout = By.linkText("Logout");
 	private By account = By.linkText("Account");
-	private By logo = By.xpath("//img[@title='OpenCart - Your Account']");
+	private By logo = By.xpath("//img[@title='naveenopencart']");
+	
 
 	public AccountPage(WebDriver driver) {
 		

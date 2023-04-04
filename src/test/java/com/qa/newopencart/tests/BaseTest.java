@@ -10,7 +10,6 @@ import com.qa.newopencart.factory.DriverFactory;
 import com.qa.newopencart.pages.AccountPage;
 import com.qa.newopencart.pages.LoginPage;
 import com.qa.newopencart.pages.RegisterPage;
-import com.qa.newopencart.pages.SecurityPinPage;
 import com.qa.newopencart.utils.ElementUtils;
 
 public class BaseTest {
@@ -21,7 +20,6 @@ public class BaseTest {
 	Properties prop;
 	ElementUtils eutils;
 	AccountPage accPage;
-	SecurityPinPage pinPage;
 	RegisterPage registerPage;
 
 	@BeforeTest
