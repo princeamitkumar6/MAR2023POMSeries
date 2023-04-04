@@ -36,6 +36,12 @@ public class DriverFactory {
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
+				try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		driver.get(prop.getProperty("url").trim());
 		return driver;
 	}
