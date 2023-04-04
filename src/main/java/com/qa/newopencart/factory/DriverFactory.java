@@ -43,6 +43,12 @@ public class DriverFactory {
 			e.printStackTrace();
 		}
 		driver.get(prop.getProperty("url").trim());
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return driver;
 	}
 
