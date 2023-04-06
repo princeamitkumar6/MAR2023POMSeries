@@ -22,8 +22,10 @@ public class DriverFactory {
 		String browser = prop.getProperty("browser").trim();
 
 		if (browser.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().browserVersion("111.0.5563.147").setup();;
+			// WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", "./newopencart/jars/chromedriver.exe");
 			driver = new ChromeDriver();
+
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
@@ -37,12 +39,6 @@ public class DriverFactory {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.get(prop.getProperty("url").trim());
-		try {
-			Thread.sleep(100000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return driver;
 	}
 

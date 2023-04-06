@@ -9,7 +9,9 @@ import org.testng.annotations.BeforeTest;
 import com.qa.newopencart.factory.DriverFactory;
 import com.qa.newopencart.pages.AccountPage;
 import com.qa.newopencart.pages.LoginPage;
+import com.qa.newopencart.pages.ProdInfoPage;
 import com.qa.newopencart.pages.RegisterPage;
+import com.qa.newopencart.pages.ResultsPage;
 import com.qa.newopencart.utils.ElementUtils;
 
 public class BaseTest {
@@ -21,6 +23,8 @@ public class BaseTest {
 	ElementUtils eutils;
 	AccountPage accPage;
 	RegisterPage registerPage;
+	ResultsPage resultsPage;
+	ProdInfoPage prodInfoPage;
 
 	@BeforeTest
 	public void setUp() {

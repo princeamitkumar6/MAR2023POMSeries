@@ -19,10 +19,13 @@ public class AccountPage {
 	private By logout = By.linkText("Logout");
 	private By account = By.linkText("Account");
 	private By logo = By.xpath("//img[@title='naveenopencart']");
+
+	private By searchTextbox = By.name("search");
+	private By searchButton = By.xpath("//span[@class='input-group-btn']");
 	
 
 	public AccountPage(WebDriver driver) {
-		
+		this.driver = driver;
 		eutils = new ElementUtils(driver);
 	}
 
@@ -69,6 +72,12 @@ public class AccountPage {
 			list.add(e.getText());
 		}
 		return list;
+	}
+
+	public ResultsPage searchText(String prodName) {
+		eutils.doSendKeys(searchTextbox, prodName);
+		eutils.doClick(searchButton);
+		return new ResultsPage(driver);
 	}
 
 }
