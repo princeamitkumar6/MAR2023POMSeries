@@ -24,5 +24,7 @@ public class Constant {
 	public static final String TEST_DATA_SHEET = "register";
 	public static final String SEARCH_PRODUCT_NAME = "mac";
 	public static final String PROD_INFO_PAGE_TEXT = "Products meeting the search criteria";
+	public static final Object MACBOOK_IMAGES_COUNT = 3;
+	public static final Object IMAC_IMAGES_COUNT = 2;
 
 }

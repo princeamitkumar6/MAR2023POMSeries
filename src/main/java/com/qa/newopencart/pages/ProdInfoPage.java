@@ -65,10 +65,11 @@ public class ProdInfoPage {
 
 	public void getProductPriceData() {
 		List<WebElement> priceData = eutils.getElements(productPriceData);
-		for (WebElement e : priceData) {
-			String price = e.getText();
-			String[] pData = price.split(":");
-			map.put(pData[0], pData[1]);
-		}
+			String price = priceData.get(0).getText().trim();
+			String exTax = priceData.get(1).getText().trim();
+			String exTaxPrice = exTax.split(":")[1].trim();
+			
+			map.put("productprice", price );
+			map.put("Ex Tax", exTaxPrice);
 	}
 }
