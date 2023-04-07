@@ -5,6 +5,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.asserts.SoftAssert;
 
 import com.qa.newopencart.factory.DriverFactory;
 import com.qa.newopencart.pages.AccountPage;
@@ -25,6 +26,8 @@ public class BaseTest {
 	RegisterPage registerPage;
 	ResultsPage resultsPage;
 	ProdInfoPage prodInfoPage;
+	
+	SoftAssert softAssert;
 
 	@BeforeTest
 	public void setUp() {
