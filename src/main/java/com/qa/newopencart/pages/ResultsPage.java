@@ -41,7 +41,7 @@ public class ResultsPage {
 		for (WebElement e : prodList) {
 			String text = e.getText();
 			System.out.println(text);
-			if (text.equals(productName)) {
+			if (text.equalsIgnoreCase(productName)) {
 				e.click();
 				break;
 			}

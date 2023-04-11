@@ -36,6 +36,7 @@ public class BaseTest {
 		driver = driverFactory.init_driver(prop);
 		eutils = new ElementUtils(driver);
 		loginPage = new LoginPage(driver);
+		softAssert = new SoftAssert();
 	}
 
 	@AfterTest

@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.qa.newopencart.utils.Constant;
 import com.qa.newopencart.utils.ElementUtils;
 
 public class ProdInfoPage {
@@ -22,6 +23,12 @@ public class ProdInfoPage {
 	private By productMetaData = By.xpath("(//div[@class='col-sm-4']/ul)[1]/li");
 	private By productPriceData = By.xpath("(//div[@class='col-sm-4']/ul)[2]/li");
 
+	private By addCartSucessMessage = By.xpath("//div[@class='alert alert-success alert-dismissible']");
+	private By quantityTextBox = By.name("quantity");
+	private By addToCartButton = By.id("button-cart");
+	private By cartSuccessMessg = By.cssSelector("div.alert.alert-success");
+	
+
 	public ProdInfoPage(WebDriver driver) {
 		this.driver = driver;
 		eutils = new ElementUtils(driver);
@@ -29,6 +36,11 @@ public class ProdInfoPage {
 
 	public String getProductHeaderName() {
 		return eutils.getText(prodName);
+	}
+	
+	public void enterQuantity(int qty) {
+		System.out.println("Product Quantity: " + qty);
+		eutils.doSendKeys(quantityTextBox, String.valueOf(qty));
 	}
 
 	public int getProdImageCount() {
@@ -65,11 +77,29 @@ public class ProdInfoPage {
 
 	public void getProductPriceData() {
 		List<WebElement> priceData = eutils.getElements(productPriceData);
-			String price = priceData.get(0).getText().trim();
-			String exTax = priceData.get(1).getText().trim();
-			String exTaxPrice = exTax.split(":")[1].trim();
-			
-			map.put("productprice", price );
-			map.put("Ex Tax", exTaxPrice);
+		String price = priceData.get(0).getText().trim();
+		String exTax = priceData.get(1).getText().trim();
+		String exTaxPrice = exTax.split(":")[1].trim();
+
+		map.put("productprice", price);
+		map.put("Ex Tax", exTaxPrice);
+	}
+
+//	public String addProductInCart(String quantity) {
+//		eutils.doSendKeys(quantityTextBox, quantity);
+//		eutils.doClick(addToCartButton);
+//		return eutils.getText(addCartSucessMessage);
+//	}
+	
+	public String addProductToCart() {
+		eutils.doClick(addToCartButton);
+		String successMessg = eutils.waitForElementVisible(cartSuccessMessg, Constant.DEFAULT_MEDIUM_TIME_OUT).getText();
+		//StringBuilder sb = new StringBuilder(successMessg);
+		//String mesg = sb.substring(0, successMessg.length()-1).replace("\n", "").toString();
+		
+		String mesg = successMessg.substring(0, successMessg.length()-1).replace("\n", "").toString();
+		
+		System.out.println("Cart Success Mesg: " + mesg);
+		return mesg;
 	}
 }
